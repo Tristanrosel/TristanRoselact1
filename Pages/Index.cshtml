@@ -1,0 +1,31 @@
+﻿@page
+@model TristanRoselact1.Pages.IndexModel
+@{
+    ViewData["Title"] = "Colors";
+}
+
+<h1>Colors</h1>
+
+@if (Model.Colors != null && Model.Colors.Count > 0)
+{
+    <ul>
+        @foreach (var color in Model.Colors)
+        {
+            <li>
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 50px; height: 50px; background-color: #@color.Hex;"></div>
+                    <div style="margin-left: 15px;">
+                        <strong>@color.Title</strong> by @color.UserName<br />
+                        Hex: @color.Hex<br />
+                        RGB: @color.RGB.Red, @color.RGB.Green, @color.RGB.Blue<br />
+                        Date Created: @color.DateCreated
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No colors available.</p>
+}
